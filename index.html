@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <!-- Head -->
+    <head>
+        <title>Tic Tac Toe</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href = "images/TicTacToe.png">
+        <link rel="stylesheet" href="./CSS/style.css">
+        <script src="./JavaScript/main.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Silkscreen' rel='stylesheet' type='text/css'>
+    </head>
+
+    <!-- Body -->
+    <body onload="onLoad()">
+        <header>
+            <h1>Tic Tac Toe</h1>
+        </header>
+
+        <div class="Paragraph">
+            <!-- Game Container -->
+            <table id="Grid" class="TTable"></table>
+            <div id="winner"></div>
+            
+            <h2>Rules</h2>
+            <ol class="Rules">
+                <li>The game is played on a grid that's <span>3 squares by 3 squares</span>.</li>
+                <li>One of two players are <span>X</span>, your friend is <span>O</span>. Players take turns putting their marks in empty squares.</li>
+                <li>The first player to get <span>3 of her marks in a row</span> (<span>up</span>, <span>down</span>, <span>across</span>, or <span>diagonally</span>) is the <span>winner</span>.</li>
+                <li>When all 9 squares are <span>full</span>, the <span>game is over</span>. If no player has 3 marks in a row, the <span>game ends in a tie</span>.</li>
+            </ol>
+        </div>
+    </body>
+</html>

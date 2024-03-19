@@ -1,0 +1,97 @@
+/* Body style */
+body {
+  background-color: #a7cbd5;
+  font-family: 'Silkscreen';
+  margin: 0;                    /* Reset margin */
+  padding: 0;                   /* Reset padding */
+}
+
+/* Header */
+header {
+  background-color: #f1f1f1;
+  width: 100%;                  /* Full width */
+  top: 0;                       /* Position the header at the top of the page */
+  padding: 5px;                 /* Space between the content and the border */
+  position: fixed;              /* Fix the header */
+  z-index: 100;                 /* Layer order in the page stack */
+}
+
+/* Header Title */
+h1 {
+  color: #5188ee;
+  text-align: center;
+  font-size: 50px;
+}
+
+/* Paragraph Title */
+h2 {
+  color: #0080c0;
+  text-align: center;
+  font-size: 32px;
+}
+
+/* Text */
+span {
+  color: #0080c0;
+  font-weight: bold;
+}
+
+table {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;             /* Centers the table horizontally */ 
+  border-collapse: collapse;  /* Merge the borders of the cells */   
+}
+
+td {
+  width: 100px;
+  height: 100px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 30px;
+  border: 2px solid #000;   /* Border of the cells */
+  cursor: pointer;            /* Change the mouse cursor to a pointer when the user moves it over the table rows */
+}
+
+/* Paragraph */
+.Paragraph {
+  width: 80%;
+  height: auto;
+  background-color: #f1f1f1;
+  padding: 40px;
+  border-radius: 30px;
+  margin: auto;                     /* Centers the paragraph horizontally */
+  position: absolute;               /* Position the paragraph */
+  top: 53%;                         /* Position the paragraph at the 53% of the height of the window */
+  left: 50%;                        /* Position the paragraph at the 50% of the width of the window */
+  transform: translate(-50%, -50%); /* Centra il div rispetto al suo centro */
+  box-shadow:  10px 10px 100px #808080,
+              -10px -10px 100px #ffffff;  /* Shadow */
+}
+
+.Rules {
+  text-align: justify;
+  font-size: 20px;
+}
+
+.TTable {
+  height: 300px;
+  width: 300px;
+  padding: 5px;
+  background-color: #194f82;
+  font-size: 80px;
+  text-align: center;
+  justify-content: center;    /* Centers the table horizontally */
+  margin-left: auto;          /* Centers the table horizontally */
+  margin-right: auto;         /* Centers the table horizontally */
+}
+.free { /* Free Blocks */
+  background-color:white;
+}
+.X {    /* X Block */
+  background-color: #56ace0;
+}
+.O {    /* O Block */
+  background-color: #fbc30c;
+}
