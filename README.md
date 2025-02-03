@@ -16,7 +16,7 @@ A responsive web implementation of the classic Tic Tac Toe game with retro-moder
 ## 🚀 Quick Start
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/tic-tac-toe.git
+   git clone https://github.com/vertosofficial/tic-tac-toe.git
    ```
 2. **Open in browser**:
    ```bash
