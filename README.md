@@ -87,8 +87,7 @@ function checkWinner() {} // Validate win/draw
 ## 📜 License
 Distributed under the MIT License. See LICENSE for more information.
 
-Made with ❤️ by Vertos<div align="center">
-  
 <div align="center">
-  **[🚀 Play Now](https://vertosofficial.github.io/TicTacToe/)** | **[🐞 Report Issue](https://github.com/vertosofficial/TicTacToe/issues)**
+  <p>Made with ❤️ by Vertos</p>
+  <a href="https://vertosofficial.github.io/TicTacToe/">🚀 Play Now</a> &nbsp;|&nbsp; <a href="https://github.com/vertosofficial/TicTacToe/issues">🐞 Report Issue</a>
 </div>
