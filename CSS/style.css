@@ -1,97 +1,134 @@
-/* Body style */
+/* Game Style */
+
 body {
   background-color: #a7cbd5;
-  font-family: 'Silkscreen';
-  margin: 0;                    /* Reset margin */
-  padding: 0;                   /* Reset padding */
+  font-family: 'Silkscreen', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
 }
 
-/* Header */
 header {
   background-color: #f1f1f1;
-  width: 100%;                  /* Full width */
-  top: 0;                       /* Position the header at the top of the page */
-  padding: 5px;                 /* Space between the content and the border */
-  position: fixed;              /* Fix the header */
-  z-index: 100;                 /* Layer order in the page stack */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 15px 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Header Title */
 h1 {
   color: #5188ee;
   text-align: center;
-  font-size: 50px;
+  font-size: 2.5rem;
+  margin: 0;
 }
-
-/* Paragraph Title */
 h2 {
   color: #0080c0;
   text-align: center;
-  font-size: 32px;
+  font-size: 2rem;
+  margin: 1.5rem 0;
 }
 
-/* Text */
+.Paragraph {
+  width: 95%;
+  max-width: 1000px;
+  background-color: #f1f1f1;
+  padding: 60px;
+  border-radius: 30px;
+  margin: 2rem auto;
+  box-shadow: 10px 10px 30px rgba(128,128,128,0.3),
+             -10px -10px 30px rgba(255,255,255,0.5);
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  aspect-ratio: 1;
+}
+td {
+  width: 33.33%;
+  height: 33.33%;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 30px;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.X {
+  background-color: #56ace0;
+  border-radius: 0;
+}
+.O {
+  background-color: #fbc30c;
+  border-radius: 0;
+}
+
+.Rules {
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
 span {
   color: #0080c0;
   font-weight: bold;
 }
 
-table {
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;             /* Centers the table horizontally */ 
-  border-collapse: collapse;  /* Merge the borders of the cells */   
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  body {
+    padding-top: 60px;
+  }
+  
+  .Paragraph {
+    width: 90%;
+    padding: 30px;
+    min-height: auto;
+    margin: 1rem auto;
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  td {
+    font-size: 1.2rem;
+    border-radius: 20px;
+  }
+
+  .Rules {
+    font-size: 0.9rem;
+    padding: 0;
+  }
 }
 
-td {
-  width: 100px;
-  height: 100px;
-  font-size: 24px;
-  text-align: center;
-  font-weight: bold;
-  border-radius: 30px;
-  border: 2px solid #000;   /* Border of the cells */
-  cursor: pointer;            /* Change the mouse cursor to a pointer when the user moves it over the table rows */
-}
-
-/* Paragraph */
-.Paragraph {
-  width: 80%;
-  height: auto;
-  background-color: #f1f1f1;
-  padding: 40px;
-  border-radius: 30px;
-  margin: auto;                     /* Centers the paragraph horizontally */
-  position: absolute;               /* Position the paragraph */
-  top: 53%;                         /* Position the paragraph at the 53% of the height of the window */
-  left: 50%;                        /* Position the paragraph at the 50% of the width of the window */
-  transform: translate(-50%, -50%); /* Centra il div rispetto al suo centro */
-  box-shadow:  10px 10px 100px #808080,
-              -10px -10px 100px #ffffff;  /* Shadow */
-}
-
-.Rules {
-  text-align: justify;
-  font-size: 20px;
-}
-
-.TTable {
-  height: 300px;
-  width: 300px;
-  padding: 5px;
-  background-color: #194f82;
-  font-size: 80px;
-  text-align: center;
-  justify-content: center;    /* Centers the table horizontally */
-  margin-left: auto;          /* Centers the table horizontally */
-  margin-right: auto;         /* Centers the table horizontally */
-}
-.free { /* Free Blocks */
-  background-color:white;
-}
-.X {    /* X Block */
-  background-color: #56ace0;
-}
-.O {    /* O Block */
-  background-color: #fbc30c;
+/* Tablet Responsive */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .Paragraph {
+    max-width: 700px;
+    padding: 50px;
+  }
+  
+  td {
+    font-size: 2rem;
+  }
 }
