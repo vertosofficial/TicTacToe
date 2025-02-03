@@ -1,0 +1,134 @@
+/* Game Style */
+
+body {
+  background-color: #a7cbd5;
+  font-family: 'Silkscreen', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 80px;
+}
+
+header {
+  background-color: #f1f1f1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 15px 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #5188ee;
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0;
+}
+h2 {
+  color: #0080c0;
+  text-align: center;
+  font-size: 2rem;
+  margin: 1.5rem 0;
+}
+
+.Paragraph {
+  width: 95%;
+  max-width: 1000px;
+  background-color: #f1f1f1;
+  padding: 60px;
+  border-radius: 30px;
+  margin: 2rem auto;
+  box-shadow: 10px 10px 30px rgba(128,128,128,0.3),
+             -10px -10px 30px rgba(255,255,255,0.5);
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  aspect-ratio: 1;
+}
+td {
+  width: 33.33%;
+  height: 33.33%;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 30px;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.X {
+  background-color: #56ace0;
+  border-radius: 0;
+}
+.O {
+  background-color: #fbc30c;
+  border-radius: 0;
+}
+
+.Rules {
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+span {
+  color: #0080c0;
+  font-weight: bold;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  body {
+    padding-top: 60px;
+  }
+  
+  .Paragraph {
+    width: 90%;
+    padding: 30px;
+    min-height: auto;
+    margin: 1rem auto;
+    border-radius: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  td {
+    font-size: 1.2rem;
+    border-radius: 20px;
+  }
+
+  .Rules {
+    font-size: 0.9rem;
+    padding: 0;
+  }
+}
+
+/* Tablet Responsive */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .Paragraph {
+    max-width: 700px;
+    padding: 50px;
+  }
+  
+  td {
+    font-size: 2rem;
+  }
+}
