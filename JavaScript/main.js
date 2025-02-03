@@ -1,105 +1,117 @@
 // Game functions //
-var move = 0; 				// Move counter
-var gameOver = false; 		// Game over flag
-var grid = [["", "", ""],
+
+var gMove = 0; 				// Move counter
+var gGameOver = false; 		// Game over flag
+var gGrid = [["", "", ""],
     		["", "", ""],
     		["", "", ""]]; 	// Game grid
 
-function onLoad() {             // Start function
-    var n = 3; 										// Grid size (3x3)
-    var table = document.getElementById("Grid");	// Get the table element
-    var s = "";									    // String to be inserted in the table
+function onLoad() {
+    var grid_size = 3;
+    var gameGrid = document.getElementById("Grid");
+    var gridHTML = "";
     
-    // Reset game variables //
-    move = 0;
-    gameOver = false;
-    grid = [["", "", ""], 
-            ["", "", ""], 
-            ["", "", ""]];
+    // Reset game variables
+    gMove = 0;
+    gGameOver = false;
+    gGrid = [["", "", ""], 
+             ["", "", ""], 
+             ["", "", ""]];
 
-    for (var i = 0; i < n; i++) {   // Create table rows
-        s += "<tr>";
-        for (var j = 0; j < n; j++) // Create table cells
-            s += '<td id="' + i + j + '" onclick="choose(this);"></td>';    // Add click event to each cell
-        s += "</tr>";
+    // Generate HTML Grid
+    for(var row = 0; row < grid_size; row++) {
+        gridHTML += "<tr>";
+        for(var col = 0; col < grid_size; col++)
+            gridHTML += '<td id="' + row + col + '" onclick="choose(this);"></td>';    // Add click event to each cell
+        gridHTML += "</tr>";
     }
-    table.innerHTML = s; // Insert the string in the table
+    gameGrid.innerHTML = gridHTML;
 
-    // Clear the winner div //
-    var winnerDiv = document.getElementById("winner");
+    // Clear the result message
+    var winnerDiv = document.getElementById("Result");
     winnerDiv.innerHTML = "";
 }
-function choose(element) {      // Click function
-    var id = element.getAttribute("id");    // Get the ID of the clicked element
-    const [i, j] = getPosFromId(id); 	    // Get the position from the getPosFromId()
+function choose(element) {
+    var id = element.getAttribute("id");
+    const [row, col] = getPosFromId(id);
 
-    if (grid[i][j] != "" || gameOver)   // If the cell is already filled or the game is over
+    if(gGrid[row][col] != "" || gGameOver)
         return;
 
-    var s = "";         // String to be inserted in the cell
-    if (move % 2 == 0)  // Odd moves are X  
-        s = "X";        
-    else                // Even moves are O
-        s = "O";
+    var player = "";
+    if(gMove % 2 == 0) {    // Odd -> X
+        player = "X";
+        element.classList.add("X");
+    } else {                // Even -> O
+        player = "O";
+        element.classList.add("O");
+    }
 
-    element.innerHTML = s;  // Update the cell's visible content
-    grid[i][j] = s;         // Update the data matrix
-    move++;                 // Increment the move counter
-    checkWinner();          // Check if there is a winner
+    element.innerHTML = player;
+    gGrid[row][col] = player;
+    gMove++;
+    checkWinner();
 }
-function getPosFromId(id) {     // Find APosition From ID
-    // For example, "01" is the position [0, 1]
-    var row = id[0];                // The first character represents the row number
-    if (row < '0' || row > '2') {   // If the character is not a number between 0 and 2
-        alert('ID errato ', i);
+function getPosFromId(id) {
+    var row = id[0];    // "01" -> [0, 1]
+    if(row < '0' || row > '2') {
+        alert('Wrong ID', i);
         return null;
     }
-    var column = id[1];                     // The second character represents the column number
-    if (column < '0' || column > '2') {     // If the character is not a number between 0 and 2
-        alert('ID errato ', i);
+    var column = id[1]; // "01" -> [0, 1]
+    if(column < '0' || column > '2') {
+        alert('Wrong ID', i);
         return null;
     }
 
-    var result = [row.valueOf(), column.valueOf()]; // Restituisce la posizione come coppia di valori
+    var result = [row.valueOf(), column.valueOf()];
     return result;
 }
-function checkWinner() {        // Check Winner
-    for (i = 0; i < 3; i++) {   
-        result = checkColumn(i);
-        if (result == false)
-            result = checkRow(i);
-        if (result == false)
-            result = checkDiagonals();
-        
-        if (result) {   // Finded a winner
-            winnerDiv = document.getElementById("winner");                                              // Get the winner div
-            winnerDiv.innerHTML = "<h1>Finded a winner: " + result + " Click here to restart</h1>";     // Update the winner div
-            winnerDiv.onclick = onLoad;                                                                 // Restart the game on click
-            gameOver = true;                                                                            // Set the game over flag
-     
-            return result;
+function checkRows() {
+    for(let row = 0; row < 3; row++) {
+        if(gGrid[row][0] !== "" && gGrid[row][0] === gGrid[row][1] && gGrid[row][0] === gGrid[row][2]) {
+            return gGrid[row][0];
+        }
+    }
+    
+    return null;
+}
+function checkColumns() {
+    for(let col = 0; col < 3; col++) {
+        if(gGrid[0][col] !== "" && gGrid[0][col] === gGrid[1][col] && gGrid[0][col] === gGrid[2][col]) {
+            return gGrid[0][col];
         }
     }
 
-    return false;
+    return null;
 }
-function checkRow(row) {        // Check Row
-    [a, b, c] = grid[row];  // Get the row
-    if (a == b && a == c)   // If all the cells are equal
-        return a;
-    return false;
-}
-function checkColumn(column) {  // Check Column
-    [a, b, column] = [grid[0][column], grid[1][column], grid[2][column]];
-    if (a == b && a == column)
-        return a;
-    return false;
-}
-function checkDiagonals() {     // Check Diagonals
-    if (grid[0][0] == grid[1][1] && grid[0][0] == grid[2][2])
-        return grid[0][0];
-    if (grid[0][2] == grid[1][1] && grid[0][2] == grid[2][0])
-        return grid[0][2];
-    return false;
-}
+function checkDiagonals() {
+    if(gGrid[0][0] !== "" && gGrid[0][0] === gGrid[1][1] && gGrid[0][0] === gGrid[2][2])
+        return gGrid[0][0];
+    if(gGrid[0][2] !== "" && gGrid[0][2] === gGrid[1][1] && gGrid[0][2] === gGrid[2][0])
+        return gGrid[0][2];
 
+    return null;
+}
+function checkWinner() {
+    let winner = checkRows() || checkColumns() || checkDiagonals();
+    
+    if(winner) {
+        announceWinner(winner);
+        return;
+    }
+    if(gMove === 9)
+        announceDraw();
+}
+function announceWinner(winner) {
+    var resultDiv = document.getElementById("Result");
+    resultDiv.innerHTML = `<h1>Winner: ${winner}! Click here to restart.</h1>`;
+    resultDiv.onclick = onLoad;
+    gGameOver = true;
+}
+function announceDraw() {
+    var resultDiv = document.getElementById("Result");
+    resultDiv.innerHTML = `<h1>It's a draw! Click here to restart.</h1>`;
+    resultDiv.onclick = onLoad;
+    gGameOver = true;
+}
