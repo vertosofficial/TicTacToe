@@ -89,6 +89,6 @@ Distributed under the MIT License. See LICENSE for more information.
 
 Made with ❤️ by Vertos<div align="center">
   
-[🌍 Live Demo](https://your-demo-link.com) | [📮 Report Issue](https://github.com/your-username/repo-name/issues)
-
+<div align="center">
+  **[🚀 Play Now](https://vertosofficial.github.io/TicTacToe/)** | **[🐞 Report Issue](https://github.com/vertosofficial/TicTacToe/issues)**
 </div>
