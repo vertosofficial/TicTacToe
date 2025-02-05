@@ -3,8 +3,8 @@
 var gMove = 0;              // Move counter
 var gGameOver = false;      // Game over flag
 var gGrid = [["", "", ""],
-    		 ["", "", ""],
-    		 ["", "", ""]]; // Game grid
+             ["", "", ""],
+             ["", "", ""]]; // Game grid
 
 function onLoad() {
     var grid_size = 3;
