@@ -41,7 +41,6 @@ TicTacToe/
 
 ## 🎨 Design Specs
 ### Color Palette
-
 | Color         | Hex        | Usage               |
 |---------------|------------|---------------------|
 | **Player X**  | `#56ace0`  | X marker background |
